@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<style type="text/css">
+  #formulario {
+    left: 50%; 
+    margin: -130px 0 0 -210px; 
+    padding:10px;
+    position: absolute; 
+    top: 50%;
+  }
+  
+  fieldset {
+    width:300px;
+    height:150px;
+    background-color:#FAFAD2
+  }
+  
+  legend {
+    text-align:center;
+    color:#FF4500;
+    font-size:20px;
+    font-family:Rockwell;
+  }
+  
+  #botao{
+    position:absolute;
+    margin: 10px 0 0 10px;
+  }
+</style>
+</head>
+<body>
+   
+   <div id="formulario">
+	<form method="POST" action="autenticador.do">
+		<fieldset>
+			<legend>Autenticar</legend> <br>
+			Login: <input type="text" name="login"> <br>
+			<br> Senha: <input type="password" name="senha"> <br>
+			<br> <input type="submit" value="Autenticar" id = "botao">
+		</fieldset>
+	</form>
+  </div>
+</body>
+</html>
