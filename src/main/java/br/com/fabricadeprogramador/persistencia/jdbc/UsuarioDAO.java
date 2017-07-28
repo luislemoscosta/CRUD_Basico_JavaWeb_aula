@@ -20,7 +20,7 @@ public class UsuarioDAO {
 			
 			//Substituindo os parametros do SQL pelos valores do objeto
 			//substitui o '?'
-            preparator.setString(1, usuAlt.getNome()); 
+                        preparator.setString(1, usuAlt.getNome()); 
 			preparator.setString(2, usuAlt.getLogin()); 
 			preparator.setString(3, usuAlt.getSenha());
 			//Executa SQL preparador.execute();
@@ -63,8 +63,8 @@ public class UsuarioDAO {
 			e.printStackTrace();
 		}
    }
-   //criando o metodo salvar.metodo que encapsula os metodos cadastrar e alterar.o criterio de decis„o È o id do usuario
-   //se for null ou maior que zero,o usuario ja existe e ent„o È alterar(),caso contrario,cadastrar()
+   //criando o metodo salvar.metodo que encapsula os metodos cadastrar e alterar.o criterio de decis√£o √© o id do usuario
+   //se for null ou maior que zero,o usuario ja existe e ent√£o √© alterar(),caso contrario,cadastrar()
    
    public void salvar(Usuario usu){ 
 	  if(usu.getId()!=null && usu.getId()>0){ 
@@ -78,14 +78,14 @@ public class UsuarioDAO {
 	
 	String sql = "select * from usuario where id=?";
 	try ( PreparedStatement preparador = con.prepareStatement(sql)){ 
-		//seta o id no primeiro ponto de interrogaÁao
+		//seta o id no primeiro ponto de interroga√ßao
 		preparador.setInt(1, id);
       
 		//pega os resultados da query e coloca num Resultset
 	    ResultSet resultado = preparador.executeQuery();
 	  
 	    //resultado.next posiciona o ponteiro no primeiro registro.se tivessem 2,estaria no segundo registro, e etc
-	   //se existe registro,ent„o converte pra uma classe
+	   //se existe registro,ent√£o converte pra uma classe
 	       if (resultado.next()) {
 	       Usuario usuRetorno1 = new Usuario();
 	       usuRetorno1.setId(resultado.getInt("id"));
@@ -95,7 +95,7 @@ public class UsuarioDAO {
 	       return usuRetorno1;
 	 }
 	
-	  System.out.println("N„o encontrado!");
+	  System.out.println("N√£o encontrado!");
 	  
 	} catch (SQLException e) { 
 		e.printStackTrace();
@@ -104,20 +104,20 @@ public class UsuarioDAO {
   }
    
    public List<Usuario> BuscaTodos() {
-	   //Objeto de retorno do mÈtodo
+	   //Objeto de retorno do m√©todo
 	   List<Usuario> listaRetorno = new ArrayList<Usuario>(); 
 	   String sql = "select * from usuario order by id";
 	   
 	   try (PreparedStatement preparador = con.prepareStatement(sql)){
 	        //Retorno da consulta em Resultset
-	       ResultSet resultado = preparador.executeQuery(); // como preciso de um retorno do banco,n„o posso simplesmente usar execute().
+	       ResultSet resultado = preparador.executeQuery(); // como preciso de um retorno do banco,n√£o posso simplesmente usar execute().
 	       //Navegada nos registros 
 	       
 	       while(resultado.next()){
 	       //instancia o objeto Usuario
 	       
 	       Usuario usu = new Usuario();
-	       //Carga de dados no usu·rio 
+	       //Carga de dados no usu√°rio 
 	       usu.setId(resultado.getInt("id")); 
 	       usu.setNome(resultado.getString("nome")); 
 	       usu.setLogin(resultado.getString("login")); 
@@ -134,7 +134,7 @@ public class UsuarioDAO {
    }
    
    public Usuario autenticar(Usuario usuConsulta){
-	 //Objeto de retorno do mÈtodo
+	 //Objeto de retorno do m√©todo
 	
 	 String sql = "select * from usuario where login=? and senha=md5(?)"; 
 	 try (PreparedStatement preparador = con.prepareStatement(sql)){
