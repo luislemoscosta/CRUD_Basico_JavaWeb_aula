@@ -2,10 +2,11 @@ package br.com.fabricadeprogramador.persistencia.entidade;
 
 public class Usuario {
     
-	private Integer id;
+    private Integer id;
     private String nome;
     private String login;
     private String senha;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -31,7 +32,6 @@ public class Usuario {
 		this.senha = senha;
 	}
 	
-	//isso permite que eu imprima o usuario direto
 	@Override
 	public String toString() {
 		return "Usuario [id=" + id + ", nome=" + nome + ", login=" + login + ", senha=" + senha + "]";
