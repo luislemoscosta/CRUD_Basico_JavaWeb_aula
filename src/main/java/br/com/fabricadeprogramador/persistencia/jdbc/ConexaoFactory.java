@@ -8,13 +8,13 @@ public class ConexaoFactory {
 
 	public static Connection getConnection() {
 		try {
-			// for�ar o carregamento do driver
+			// forçar o carregamento do driver
 			//como esta na web,pode nao conseguir carregar manualmente
 			Class.forName("org.postgresql.Driver");
 			return  DriverManager.getConnection("jdbc:postgresql://localhost:5432/fabricaweb","postgres","admin");
 		
 		} catch (SQLException e) {
-			//relanlando a excepiton pra deixar independende do DAO
+			//relançando a excepiton pra deixar independende do DAO
 			throw new RuntimeException(e);
 		
 		} catch (ClassNotFoundException e) {
